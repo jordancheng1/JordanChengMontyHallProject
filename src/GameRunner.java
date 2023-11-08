@@ -3,10 +3,8 @@ public class GameRunner {
     public static void main(String[]args) {
         Scanner scan = new Scanner(System.in);
 
-
         System.out.println("Welcome to the Monty Hall Game!\n");
         int winDoor = (int) (Math.random() * 3) + 1;
-        System.out.println(winDoor);
         System.out.println("There are two goats and a car randomly placed behind doors 1, 2 and 3");
         System.out.print("Where do you think the car is? Enter 1, 2 or 3: ");
         int userChoice = scan.nextInt();
