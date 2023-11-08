@@ -1,48 +1,75 @@
 public class Game {
-    private int door1 = 1;
-    private int door2 = 2;
-    private int door3 = 3;
-    private int winDoor;
+    private int door1;
+    private int door2;
+    private int door3;
     private int userChoice;
     private String switchChoice;
 
-    public int winningDoor() {
-        return winDoor = (int) (Math.random() * 3) + 1;
+    public Game(int userChoice, int winDoor) {
     }
 
-    public int  revealDoor(int userChoice) {
+    public int revealDoor(int userChoice, int winDoor) {
+        if (winDoor == 1 && userChoice == 1) {
+            return 2;
+        }
         if (winDoor == 1 && userChoice == 2) {
-            return door3;
+            return 3;
         }
         else if (winDoor == 1 && userChoice == 3) {
-            return door2;
+            return 2;
+        }
+        else if (winDoor == 2 && userChoice == 2) {
+            return 1;
         }
         else if (winDoor == 2 && userChoice == 1) {
-            return door3;
+            return 3;
         }
         else if (winDoor == 2 && userChoice == 3) {
-            return door1;
+            return 1;
+        }
+        else if (winDoor == 3 && userChoice == 3) {
+            return 1;
         }
         else if (winDoor == 3 && userChoice == 1) {
-            return door2;
+            return 2;
         }
         else {
-            return door1;
+            return 1;
         }
     }
 
-    public boolean switchDoor(String switchChoice) {
-        if (switchChoice == "Yes") {
-            return
+    public int switchDoor(int userChoice, int winDoor) {
+        if (winDoor == 1 && userChoice == 1) {
+            return 3;
         }
-    }
-    public boolean result(int userChoice) {
-        if (userChoice == winDoor) {
-            return true;
+        if (winDoor == 1 && userChoice == 2) {
+            return 1;
+        }
+        else if (winDoor == 1 && userChoice == 3) {
+            return 1;
+        }
+        else if (winDoor == 2 && userChoice == 2) {
+            return 3;
+        }
+        else if (winDoor == 2 && userChoice == 1) {
+            return 2;
+        }
+        else if (winDoor == 2 && userChoice == 3) {
+            return 2;
+        }
+        else if (winDoor == 3 && userChoice == 3) {
+            return 2;
+        }
+        else if (winDoor == 3 && userChoice == 1) {
+            return 3;
         }
         else {
-            return false;
+            return 3;
         }
+    }
+
+    public boolean result(int userChoice, int winDoor) {
+        return userChoice == winDoor;
     }
 
 }
